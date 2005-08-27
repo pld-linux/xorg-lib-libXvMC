@@ -1,4 +1,4 @@
-# $Rev: 3321 $, $Date: 2005-08-15 12:17:57 $
+# $Rev: 3321 $, $Date: 2005-08-27 17:42:48 $
 #
 Summary:	XvMC library
 Summary(pl):	Biblioteka XvMC
@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXv-devel
 BuildRequires:	libtool
-BuildRequires:	pkg-config
+BuildRequires:	pkgconfig >= 0.19
 BuildRequires:	xorg-util-util-macros
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRoot:	%{tmpdir}/libXvMC-%{version}-root-%(id -u -n)
