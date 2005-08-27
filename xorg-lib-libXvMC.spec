@@ -16,6 +16,8 @@ BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXv-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-util-util-macros
+Provides:	libXvMCW = %{version}
+Obsoletes:	libXvMCW
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,6 +32,8 @@ Summary(pl):	Pliki nag³ówkowe do biblioteki libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXv-devel
+Provides:	libXvMCW-devel = %{version}
+Obsoletes:	libXvMCW-devel
 
 %description devel
 XvMC library.
@@ -48,16 +52,18 @@ Summary:	Static libXvMC libraries
 Summary(pl):	Biblioteki statyczne libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
+Provides:	libXvMCW-static = %{version}
+Obsoletes:	libXvMCW-static
 
 %description static
 XvMC library.
 
-This package contains the static libXvMC library.
+This package contains the static libXvMC libraries.
 
 %description static -l pl
 Biblioteka XvMC.
 
-Pakiet zawiera statyczn± bibliotekê libXvMC.
+Pakiet zawiera statyczne biblioteki libXvMC.
 
 %prep
 %setup -q -n libXvMC-%{version}
