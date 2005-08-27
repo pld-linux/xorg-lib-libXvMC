@@ -1,5 +1,3 @@
-# $Rev: 3321 $, $Date: 2005-08-27 17:42:48 $
-#
 Summary:	XvMC library
 Summary(pl):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
@@ -12,13 +10,13 @@ Source0:	http://xorg.freedesktop.org/X11R7.0-RC0/lib/libXvMC-%{version}.tar.bz2
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	xorg-lib-libXext-devel
-BuildRequires:	xorg-lib-libXv-devel
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 0.19
-BuildRequires:	xorg-util-util-macros
+BuildRequires:	xorg-lib-libXext-devel
+BuildRequires:	xorg-lib-libXv-devel
 BuildRequires:	xorg-proto-videoproto-devel
-BuildRoot:	%{tmpdir}/libXvMC-%{version}-root-%(id -u -n)
+BuildRequires:	xorg-util-util-macros
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 
@@ -28,12 +26,11 @@ XvMC library.
 %description -l pl
 Biblioteka XvMC.
 
-
 %package devel
 Summary:	Header files libXvMC development
 Summary(pl):	Pliki nag³ówkowe do biblioteki libXvMC
 Group:		X11/Development/Libraries
-Requires:	xorg-lib-libXvMC = %{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXv-devel
 
 %description devel
@@ -48,12 +45,11 @@ Biblioteka XvMC.
 Pakiet zawiera pliki nag³ówkowe niezbêdne do kompilowania programów
 u¿ywaj±cych biblioteki libXvMC.
 
-
 %package static
 Summary:	Static libXvMC libraries
 Summary(pl):	Biblioteki statyczne libXvMC
-Group:		Development/Libraries
-Requires:	xorg-lib-libXvMC-devel = %{version}-%{release}
+Group:		X11/Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 XvMC library.
@@ -65,10 +61,8 @@ Biblioteka XvMC.
 
 Pakiet zawiera statyczn± bibliotekê libXvMC.
 
-
 %prep
 %setup -q -n libXvMC-%{version}
-
 
 %build
 %{__libtoolize}
@@ -80,7 +74,6 @@ Pakiet zawiera statyczn± bibliotekê libXvMC.
 
 %{__make}
 
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -88,28 +81,23 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
-
 
 %post	-p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,wheel) %{_libdir}/libXvMC*.so.*
-
+%attr(755,root,root) %{_libdir}/libXvMC*.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/X11/extensions/*.h
+%attr(755,root,root) %{_libdir}/libXvMC*.so
 %{_libdir}/libXvMC*.la
-%attr(755,root,wheel) %{_libdir}/libXvMC*.so
+%{_includedir}/X11/extensions/*.h
 %{_pkgconfigdir}/xvmc.pc
-
 
 %files static
 %defattr(644,root,root,755)
