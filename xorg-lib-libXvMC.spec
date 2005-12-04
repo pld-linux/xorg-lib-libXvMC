@@ -25,8 +25,8 @@ XvMC library.
 Biblioteka XvMC.
 
 %package devel
-Summary:	Header files libXvMC development
-Summary(pl):	Pliki nag³ówkowe do biblioteki libXvMC
+Summary:	Header files for libXvMC library
+Summary(pl):	Pliki nag³ówkowe biblioteki libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXv-devel
@@ -37,7 +37,7 @@ Obsoletes:	libXvMCW-devel
 XvMC library.
 
 This package contains the header files needed to develop programs that
-use these libXvMC.
+use libXvMC.
 
 %description devel -l pl
 Biblioteka XvMC.
