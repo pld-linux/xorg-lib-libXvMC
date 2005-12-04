@@ -1,19 +1,19 @@
 Summary:	XvMC library
 Summary(pl):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
-Version:	0.99.1
+Version:	0.99.2
 Release:	0.1
 License:	MIT
 Group:		X11/Libraries
-Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC1/lib/libXvMC-%{version}.tar.bz2
-# Source0-md5:	530faaf14b9f9d8d0766e45b72f0d97d
+Source0:	http://xorg.freedesktop.org/releases/X11R7.0-RC3/lib/libXvMC-%{version}.tar.bz2
+# Source0-md5:	f061617fa90633c4955bb0342574cf2b
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXv-devel
-BuildRequires:	xorg-util-util-macros
+BuildRequires:	xorg-util-util-macros >= 0.99.2
 Provides:	libXvMCW = %{version}
 Obsoletes:	libXvMCW
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -92,15 +92,19 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,root) %{_libdir}/libXvMC*.so.*.*.*
+%attr(755,root,root) %{_libdir}/libXvMC.so.*.*.*
+%attr(755,root,root) %{_libdir}/libXvMCW.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libXvMC*.so
-%{_libdir}/libXvMC*.la
+%attr(755,root,root) %{_libdir}/libXvMC.so
+%attr(755,root,root) %{_libdir}/libXvMCW.so
+%{_libdir}/libXvMC.la
+%{_libdir}/libXvMCW.la
 %{_includedir}/X11/extensions/*.h
 %{_pkgconfigdir}/xvmc.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libXvMC*.a
+%{_libdir}/libXvMC.a
+%{_libdir}/libXvMCW.a
