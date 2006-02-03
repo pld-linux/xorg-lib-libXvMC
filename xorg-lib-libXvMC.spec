@@ -7,6 +7,7 @@ License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/X11R7.0/src/lib/libXvMC-%{version}.tar.bz2
 # Source0-md5:	9e8e6fee2617abf589f08aea69f4fb43
+Source1:	XvMCConfig
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
@@ -83,6 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/XvMCConfig
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -94,6 +97,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING ChangeLog
 %attr(755,root,root) %{_libdir}/libXvMC.so.*.*.*
 %attr(755,root,root) %{_libdir}/libXvMCW.so.*.*.*
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/X11/XvMCConfig
 
 %files devel
 %defattr(644,root,root,755)
