@@ -1,5 +1,5 @@
 Summary:	XvMC library
-Summary(pl):	Biblioteka XvMC
+Summary(pl.UTF-8):   Biblioteka XvMC
 Name:		xorg-lib-libXvMC
 Version:	1.0.4
 Release:	1
@@ -22,12 +22,12 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 XvMC library.
 
-%description -l pl
+%description -l pl.UTF-8
 Biblioteka XvMC.
 
 %package devel
 Summary:	Header files for libXvMC library
-Summary(pl):	Pliki nag³ówkowe biblioteki libXvMC
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe biblioteki libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXv-devel
@@ -40,15 +40,15 @@ XvMC library.
 This package contains the header files needed to develop programs that
 use libXvMC.
 
-%description devel -l pl
+%description devel -l pl.UTF-8
 Biblioteka XvMC.
 
-Pakiet zawiera pliki nag³ówkowe niezbêdne do kompilowania programów
-u¿ywaj±cych biblioteki libXvMC.
+Pakiet zawiera pliki nagÅ‚Ã³wkowe niezbÄ™dne do kompilowania programÃ³w
+uÅ¼ywajÄ…cych biblioteki libXvMC.
 
 %package static
 Summary:	Static libXvMC libraries
-Summary(pl):	Biblioteki statyczne libXvMC
+Summary(pl.UTF-8):   Biblioteki statyczne libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Provides:	libXvMCW-static = %{version}
@@ -59,7 +59,7 @@ XvMC library.
 
 This package contains the static libXvMC libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka XvMC.
 
 Pakiet zawiera statyczne biblioteki libXvMC.
