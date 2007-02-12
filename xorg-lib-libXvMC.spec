@@ -1,5 +1,5 @@
 Summary:	XvMC library
-Summary(pl.UTF-8):   Biblioteka XvMC
+Summary(pl.UTF-8):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
 Version:	1.0.4
 Release:	1
@@ -27,7 +27,7 @@ Biblioteka XvMC.
 
 %package devel
 Summary:	Header files for libXvMC library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libXvMC
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	xorg-lib-libXv-devel
@@ -48,7 +48,7 @@ używających biblioteki libXvMC.
 
 %package static
 Summary:	Static libXvMC libraries
-Summary(pl.UTF-8):   Biblioteki statyczne libXvMC
+Summary(pl.UTF-8):	Biblioteki statyczne libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Provides:	libXvMCW-static = %{version}
