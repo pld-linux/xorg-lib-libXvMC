@@ -14,16 +14,17 @@ BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
 BuildRequires:	xorg-lib-libXv-devel
-BuildRequires:	xorg-util-util-macros >= 1.1.0
+BuildRequires:	xorg-util-util-macros >= 1.3
 Provides:	libXvMCW = %{version}
 Obsoletes:	libXvMCW
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-XvMC library.
+XvMC (X-Video Motion Compensation) library.
 
 %description -l pl.UTF-8
-Biblioteka XvMC.
+Biblioteka XvMC (X-Video Motion Compensation, czyli kompensacji ruchu
+dla X-Video).
 
 %package devel
 Summary:	Header files for libXvMC library
@@ -35,13 +36,14 @@ Provides:	libXvMCW-devel = %{version}
 Obsoletes:	libXvMCW-devel
 
 %description devel
-XvMC library.
+XvMC (X-Video Motion Compensation) library.
 
 This package contains the header files needed to develop programs that
 use libXvMC.
 
 %description devel -l pl.UTF-8
-Biblioteka XvMC.
+Biblioteka XvMC (X-Video Motion Compensation, czyli kompensacji ruchu
+dla X-Video).
 
 Pakiet zawiera pliki nagłówkowe niezbędne do kompilowania programów
 używających biblioteki libXvMC.
@@ -55,12 +57,13 @@ Provides:	libXvMCW-static = %{version}
 Obsoletes:	libXvMCW-static
 
 %description static
-XvMC library.
+XvMC (X-Video Motion Compensation) library.
 
 This package contains the static libXvMC libraries.
 
 %description static -l pl.UTF-8
-Biblioteka XvMC.
+Biblioteka XvMC (X-Video Motion Compensation, czyli kompensacji ruchu
+dla X-Video).
 
 Pakiet zawiera statyczne biblioteki libXvMC.
 
@@ -94,18 +97,21 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc COPYING ChangeLog
+%doc COPYING ChangeLog README
 %attr(755,root,root) %{_libdir}/libXvMC.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libXvMC.so.1
 %attr(755,root,root) %{_libdir}/libXvMCW.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libXvMCW.so.1
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/X11/XvMCConfig
 
 %files devel
 %defattr(644,root,root,755)
+%doc XvMC_API.txt
 %attr(755,root,root) %{_libdir}/libXvMC.so
 %attr(755,root,root) %{_libdir}/libXvMCW.so
 %{_libdir}/libXvMC.la
 %{_libdir}/libXvMCW.la
-%{_includedir}/X11/extensions/*.h
+%{_includedir}/X11/extensions/XvMClib.h
 %{_pkgconfigdir}/xvmc.pc
 
 %files static
