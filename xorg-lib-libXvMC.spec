@@ -2,7 +2,7 @@ Summary:	XvMC library
 Summary(pl.UTF-8):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
 Version:	1.0.5
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.tar.bz2
