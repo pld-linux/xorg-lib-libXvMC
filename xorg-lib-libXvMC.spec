@@ -2,12 +2,13 @@ Summary:	XvMC library
 Summary(pl.UTF-8):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
 Version:	1.0.6
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.tar.bz2
 # Source0-md5:	bfc7524646f890dfc30dea1d676004a3
 Source1:	XvMCConfig
+Source2:	xvmcinfo.c
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -69,6 +70,7 @@ Pakiet zawiera statyczne biblioteki libXvMC.
 
 %prep
 %setup -q -n libXvMC-%{version}
+cp -p %{SOURCE2} .
 
 %build
 %{__libtoolize}
@@ -80,6 +82,8 @@ Pakiet zawiera statyczne biblioteki libXvMC.
 
 %{__make}
 
+%{__cc} %{rpmcflags} %{rpmldflags} xvmcinfo.c -lX11 -lXv -lXvMC -o xvmcinfo
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -87,7 +91,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	pkgconfigdir=%{_pkgconfigdir}
 
-install -D %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/XvMCConfig
+install -Dp %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/XvMCConfig
+install -Dp xvmcinfo $RPM_BUILD_ROOT%{_bindir}/xvmcinfo
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -98,6 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc COPYING ChangeLog README
+%attr(755,root,root) %{_bindir}/xvmcinfo
 %attr(755,root,root) %{_libdir}/libXvMC.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libXvMC.so.1
 %attr(755,root,root) %{_libdir}/libXvMCW.so.*.*.*
