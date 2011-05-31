@@ -2,7 +2,7 @@ Summary:	XvMC library
 Summary(pl.UTF-8):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
 Version:	1.0.6
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.tar.bz2
@@ -94,6 +94,8 @@ rm -rf $RPM_BUILD_ROOT
 install -Dp %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/X11/XvMCConfig
 install -Dp xvmcinfo $RPM_BUILD_ROOT%{_bindir}/xvmcinfo
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libXvMC?.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -115,8 +117,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc XvMC_API.txt
 %attr(755,root,root) %{_libdir}/libXvMC.so
 %attr(755,root,root) %{_libdir}/libXvMCW.so
-%{_libdir}/libXvMC.la
-%{_libdir}/libXvMCW.la
 %{_includedir}/X11/extensions/XvMClib.h
 %{_pkgconfigdir}/xvmc.pc
 
