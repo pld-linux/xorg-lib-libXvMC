@@ -22,6 +22,9 @@ BuildRequires:	xorg-proto-xextproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.8
 Provides:	libXvMCW = %{version}
 Obsoletes:	libXvMCW
+# withdrawn (and never useful) Mesa drivers
+Obsoletes:	Mesa-libXvMC-r300 < 10
+Obsoletes:	Mesa-libXvMC-softpipe < 10
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
