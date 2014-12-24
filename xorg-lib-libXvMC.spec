@@ -9,6 +9,7 @@ Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.
 # Source0-md5:	2e4014e9d55c430e307999a6b3dd256d
 Source1:	XvMCConfig
 Source2:	xvmcinfo.c
+Patch0:		dlopen.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
@@ -77,6 +78,7 @@ Pakiet zawiera statyczne biblioteki libXvMC.
 
 %prep
 %setup -q -n libXvMC-%{version}
+%patch0 -p1
 cp -p %{SOURCE2} .
 
 %build
@@ -89,7 +91,7 @@ cp -p %{SOURCE2} .
 
 %{__make}
 
-%{__cc} %{rpmcflags} %{rpmldflags} xvmcinfo.c -lX11 -lXv -lXvMC -o xvmcinfo
+%{__cc} %{rpmcflags} -I./include %{rpmldflags} -L./src/.libs xvmcinfo.c -lX11 -lXv -lXvMC -o xvmcinfo
 
 %install
 rm -rf $RPM_BUILD_ROOT
