@@ -1,26 +1,26 @@
 Summary:	XvMC library
 Summary(pl.UTF-8):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
-Version:	1.0.8
-Release:	3
+Version:	1.0.9
+Release:	1
 License:	MIT
 Group:		X11/Libraries
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.tar.bz2
-# Source0-md5:	2e4014e9d55c430e307999a6b3dd256d
+# Source0-md5:	eba6b738ed5fdcd8f4203d7c8a470c79
 Source1:	XvMCConfig
 Source2:	xvmcinfo.c
-Patch0:		dlopen.patch
 URL:		http://xorg.freedesktop.org/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
-BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libX11-devel >= 1.6
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXv-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xextproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.8
+Requires:	xorg-lib-libX11 >= 1.6
 Provides:	libXvMCW = %{version}
 Obsoletes:	libXvMCW
 # withdrawn (and never useful) Mesa drivers
@@ -40,6 +40,7 @@ Summary:	Header files for libXvMC library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	xorg-lib-libX11-devel >= 1.6
 Requires:	xorg-lib-libXv-devel
 Provides:	libXvMCW-devel = %{version}
 Obsoletes:	libXvMCW-devel
@@ -78,7 +79,6 @@ Pakiet zawiera statyczne biblioteki libXvMC.
 
 %prep
 %setup -q -n libXvMC-%{version}
-%patch0 -p1
 cp -p %{SOURCE2} .
 
 %build
