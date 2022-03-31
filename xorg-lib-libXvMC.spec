@@ -1,12 +1,12 @@
 Summary:	XvMC library
 Summary(pl.UTF-8):	Biblioteka XvMC
 Name:		xorg-lib-libXvMC
-Version:	1.0.12
+Version:	1.0.13
 Release:	1
 License:	MIT
 Group:		X11/Libraries
-Source0:	https://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.tar.bz2
-# Source0-md5:	3569ff7f3e26864d986d6a21147eaa58
+Source0:	https://xorg.freedesktop.org/releases/individual/lib/libXvMC-%{version}.tar.xz
+# Source0-md5:	11a358e7229fa28dc9801c1e64fe2e18
 Source1:	XvMCConfig
 Source2:	xvmcinfo.c
 URL:		https://xorg.freedesktop.org/
@@ -14,15 +14,17 @@ BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.19
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	xorg-lib-libX11-devel >= 1.6
 BuildRequires:	xorg-lib-libXext-devel
 BuildRequires:	xorg-lib-libXv-devel
 BuildRequires:	xorg-proto-videoproto-devel
 BuildRequires:	xorg-proto-xextproto-devel
 BuildRequires:	xorg-util-util-macros >= 1.8
+BuildRequires:	xz
 Requires:	xorg-lib-libX11 >= 1.6
 Provides:	libXvMCW = %{version}
-Obsoletes:	libXvMCW
+Obsoletes:	libXvMCW < 1
 # withdrawn (and never useful) Mesa drivers
 Obsoletes:	Mesa-libXvMC-r300 < 10
 Obsoletes:	Mesa-libXvMC-softpipe < 10
@@ -48,7 +50,7 @@ Requires:	xorg-lib-libXv-devel
 Requires:	xorg-proto-videoproto-devel >= 2.3.3-2019.1.2
 Requires:	xorg-proto-xproto-devel
 Provides:	libXvMCW-devel = %{version}
-Obsoletes:	libXvMCW-devel
+Obsoletes:	libXvMCW-devel < 1
 
 %description devel
 XvMC (X-Video Motion Compensation) library.
@@ -69,7 +71,7 @@ Summary(pl.UTF-8):	Biblioteki statyczne libXvMC
 Group:		X11/Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Provides:	libXvMCW-static = %{version}
-Obsoletes:	libXvMCW-static
+Obsoletes:	libXvMCW-static < 1
 
 %description static
 XvMC (X-Video Motion Compensation) library.
